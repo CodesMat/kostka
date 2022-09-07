@@ -1,0 +1,28 @@
+ackage kostka;
+
+public class View extends javax.swing.JFrame {
+    Stats stats;
+    Prepravka prepravka;
+    public View() {
+        initComponents();
+        this.setVisible(true);
+        stats = new Stats();
+        prepravka = Prepravka.getInstance();
+    }
+
+    @SuppressWarnings("unchecked")
+    
+      private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        draw1.repaint();
+    }     
+    
+     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        if(jCheckBox1.isSelected()) stats.setVisible(true);
+        else stats.setVisible(false);
+        stats.setLocation(this.getX()+this.getWidth()-10, this.getY()+1);
+        prepravka.reset();
+    }   
+    
+     private void formComponentMoved(java.awt.event.ComponentEvent evt) {                                    
+        if(jCheckBox1.isSelected())stats.setLocation(this.getX()+this.getWidth()-10, this.getY()+1);
+    }   
