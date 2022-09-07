@@ -1,0 +1,57 @@
+package kostka;
+
+import java.util.Observable;
+import java.util.Observer;
+
+public class Stats extends javax.swing.JFrame implements Observer{
+    Prepravka prepravka;
+    
+    public Stats() {
+        initComponents();
+        prepravka = Prepravka.getInstance();
+        prepravka.addObserver(this);
+    }
+
+    @SuppressWarnings("unchecked")
+    
+//Jlabely
+//Jlabely
+//Jlabely
+//Jlabely
+//Jlabely
+//Jlabely
+//Jlabely
+
+ @Override
+    public void update(Observable o, Object arg) {
+        setStats();
+    }
+    public void setStats() {
+        jLabel7.setText(String.valueOf(prepravka.getPocet1()));
+        jLabel8.setText(String.valueOf(prepravka.getPocet2()));
+        jLabel9.setText(String.valueOf(prepravka.getPocet3()));
+        jLabel10.setText(String.valueOf(prepravka.getPocet4()));
+        jLabel11.setText(String.valueOf(prepravka.getPocet5()));
+        jLabel12.setText(String.valueOf(prepravka.getPocet6()));
+        jLabel14.setText(String.valueOf(prepravka.getCelkem()));
+        try{
+            jLabel15.setText(String.valueOf(Math.round(toDouble(prepravka.getPocet1())/toDouble(prepravka.getCelkem())*100))+"%");
+            jLabel16.setText(String.valueOf(Math.round(toDouble(prepravka.getPocet2())/toDouble(prepravka.getCelkem())*100))+"%");
+            jLabel17.setText(String.valueOf(Math.round(toDouble(prepravka.getPocet3())/toDouble(prepravka.getCelkem())*100))+"%");
+            jLabel18.setText(String.valueOf(Math.round(toDouble(prepravka.getPocet4())/toDouble(prepravka.getCelkem())*100))+"%");
+            jLabel19.setText(String.valueOf(Math.round(toDouble(prepravka.getPocet5())/toDouble(prepravka.getCelkem())*100))+"%");
+            jLabel20.setText(String.valueOf(Math.round(toDouble(prepravka.getPocet6())/toDouble(prepravka.getCelkem())*100))+"%");
+        }catch(java.lang.ArithmeticException e) {
+            int celkem = 1;
+            jLabel15.setText(String.valueOf(prepravka.getPocet1()/celkem)+"%");
+            jLabel16.setText(String.valueOf(prepravka.getPocet2()/celkem)+"%");
+            jLabel17.setText(String.valueOf(prepravka.getPocet3()/celkem)+"%");
+            jLabel18.setText(String.valueOf(prepravka.getPocet4()/celkem)+"%");
+            jLabel19.setText(String.valueOf(prepravka.getPocet5()/celkem)+"%");
+            jLabel20.setText(String.valueOf(prepravka.getPocet6()/celkem)+"%");
+        }
+    }
+    public double toDouble(int num) {
+        return Double.valueOf(num);
+    }
+}
