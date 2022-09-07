@@ -1,0 +1,105 @@
+package kostka;
+
+import java.util.Observable;
+
+public class Prepravka extends Observable {
+    
+    private static Prepravka single_instance = null; 
+    private int pocet1;
+    private int pocet2;
+    private int pocet3;
+    private int pocet4;
+    private int pocet5;
+    private int pocet6;
+    private int celkem;
+    
+    public Prepravka() {
+        pocet1 = 0;
+        pocet2 = 0;
+        pocet3 = 0;
+        pocet4 = 0;
+        pocet5 = 0;
+        pocet6 = 0;
+        celkem = 0;
+    }
+    
+    public int getCelkem() {
+        return celkem;
+    }
+    public void addCelkem() {
+        this.celkem++;
+    }
+    public int getPocet1() {
+        return pocet1;
+    }
+    public void addPocet1() {
+        this.pocet1++;
+        addCelkem();
+        setChanged();
+        notifyObservers();
+    }
+    public int getPocet2() {
+        return pocet2;
+    }
+    public void addPocet2() {
+        this.pocet2++;
+        addCelkem();
+        setChanged();
+        notifyObservers();
+    }
+    public int getPocet3() {
+        return pocet3;
+    }
+    public void addPocet3() {
+        this.pocet3++;
+        addCelkem();
+        setChanged();
+        notifyObservers();
+    }
+    public int getPocet4() {
+        return pocet4;
+    }
+    public void addPocet4() {
+        this.pocet4++;
+        addCelkem();
+        setChanged();
+        notifyObservers();
+    }
+    public int getPocet5() {
+        return pocet5;
+    }
+    public void addPocet5() {
+        this.pocet5++;
+        addCelkem();
+        setChanged();
+        notifyObservers();
+    }
+    public int getPocet6() {
+        return pocet6;
+    }
+    public void addPocet6() {
+        this.pocet6++;
+        addCelkem();
+        setChanged();
+        notifyObservers();
+    }
+    public void reset() {
+        pocet1 = 0;
+        pocet2 = 0;
+        pocet3 = 0;
+        pocet4 = 0;
+        pocet5 = 0;
+        pocet6 = 0;
+        celkem = 0;
+        setChanged();
+        notifyObservers();
+    }
+    
+    public static Prepravka getInstance() 
+    { 
+        if (single_instance == null) 
+            single_instance = new Prepravka(); 
+  
+        return single_instance; 
+    }
+}
