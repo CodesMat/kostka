@@ -1,0 +1,11 @@
+package kostka;
+
+import java.util.Random;
+
+public class Kostka {
+
+    public static void main(String[] args) {
+        View view = new View();
+    }
+    
+}
